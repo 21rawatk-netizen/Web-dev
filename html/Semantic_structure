@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>head
+        <nav>
+            <a href="#home">home</a>
+        </nav>
+    </header>
+    <div>
+        <a href="#dummy">dummy</a>
+        <p>dyh</p>
+    </div>
+    <main>
+        <p id= "home">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ipsa!</p>
+       <section>1.<section>a</section></section>
+       <section>2.</section>
+       <section>3.</section>
+       <article>ertyujhgbvfcdrftyujnhbgvfrtyuikmjnhbgfdertyuikjhnbgfdrftyuj</article>
+       <aside>
+        <h4>uuuuu</h4>
+       </aside>
+    </main>
+    <hr>
+    <footer>contact-99988776554</footer>
+</body>
+</html>
