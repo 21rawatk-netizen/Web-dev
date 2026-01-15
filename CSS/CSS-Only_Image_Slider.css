@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slider">
+    <div class="slides">
+      <img src="https://via.placeholder.com/600x300">
+      <img src="https://via.placeholder.com/600x300/ff0000">
+      <img src="https://via.placeholder.com/600x300/0000ff">
+    </div>
+  </div>
+</body>
+</html>
+##css file
+.slider {
+  width: 600px;
+  overflow: hidden;
+  margin: auto;
+}
+.slides {
+  display: flex;
+  animation: slide 6s infinite;
+}
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-600px); }
+  66% { transform: translateX(-1200px); }
+}
