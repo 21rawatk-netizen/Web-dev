@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside>Menu</aside>
+    <main>Dashboard Content</main>
+  </div>
+</body>
+</html>
+## css file
+.dashboard {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+}
+aside {
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+main {
+  padding: 20px;
+  background: #ecf0f1;
+}
