@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Kiran Rawat</h1>
+    <p>Web Developer</p>
+  </header>
+
+  <section class="about">About Me</section>
+  <section class="projects">Projects</section>
+  <section class="contact">Contact</section>
+</body>
+</html>
+## css
+body {
+  margin: 0;
+  font-family: Arial;
+}
+header {
+  background: #222;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+section {
+  padding: 40px;
+  margin: 10px;
+  background: #f4f4f4;
+}
+@media (max-width: 600px) {
+  header { font-size: 14px; }
+}
