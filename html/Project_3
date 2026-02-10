@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Task Manager</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #fff;
+            width: 360px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        li {
+            background: #f4f4f4;
+            padding: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Smart Task Manager</h1>
+
+    <div class="input-box">
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    document.addEventListener("DOMContentLoaded", loadTasks);
+
+    function addTask() {
+        if (taskInput.value.trim() === "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        const task = {
+            text: taskInput.value,
+            completed: false
+        };
+
+        createTask(task);
+        saveTask(task);
+        taskInput.value = "";
+    }
+
+    function createTask(task) {
+        const li = document.createElement("li");
+        li.textContent = task.text;
+
+        if (task.completed) {
+            li.classList.add("completed");
+        }
+
+        li.onclick = () => {
+            li.classList.toggle("completed");
+            updateLocalStorage();
+        };
+
+        const del = document.createElement("span");
+        del.textContent = "Delete";
+        del.className = "delete";
+        del.onclick = (e) => {
+            e.stopPropagation();
+            li.remove();
+            updateLocalStorage();
+        };
+
+        li.appendChild(del);
+        taskList.appendChild(li);
+    }
+
+    function saveTask(task) {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.forEach(createTask);
+    }
+
+    function updateLocalStorage() {
+        const tasks = [];
+        document.querySelectorAll("li").forEach(li => {
+            tasks.push({
+                text: li.firstChild.textContent,
+                completed: li.classList.contains("completed")
+            });
+        });
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+</script>
+
+</body>
+</html>
