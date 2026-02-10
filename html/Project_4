@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Grade Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 380px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #11998e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0f8b80;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .result span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Grade Calculator</h1>
+
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="number" id="m1" placeholder="Subject 1 Marks">
+    <input type="number" id="m2" placeholder="Subject 2 Marks">
+    <input type="number" id="m3" placeholder="Subject 3 Marks">
+    <input type="number" id="m4" placeholder="Subject 4 Marks">
+    <input type="number" id="m5" placeholder="Subject 5 Marks">
+
+    <button onclick="calculate()">Calculate Result</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function calculate() {
+        const name = document.getElementById("name").value.trim();
+        const marks = [
+            Number(document.getElementById("m1").value),
+            Number(document.getElementById("m2").value),
+            Number(document.getElementById("m3").value),
+            Number(document.getElementById("m4").value),
+            Number(document.getElementById("m5").value)
+        ];
+
+        if (!name || marks.some(m => m < 0 || m > 100 || isNaN(m))) {
+            alert("Please enter valid details (0–100 marks).");
+            return;
+        }
+
+        const total = marks.reduce((a, b) => a + b, 0);
+        const percentage = (total / 500) * 100;
+
+        let grade;
+        if (percentage >= 90) grade = "A+";
+        else if (percentage >= 80) grade = "A";
+        else if (percentage >= 70) grade = "B";
+        else if (percentage >= 60) grade = "C";
+        else if (percentage >= 50) grade = "D";
+        else grade = "Fail";
+
+        const resultBox = document.getElementById("result");
+        resultBox.style.display = "block";
+        resultBox.innerHTML = `
+            <p>Name: <span>${name}</span></p>
+            <p>Total Marks: <span>${total}/500</span></p>
+            <p>Percentage: <span>${percentage.toFixed(2)}%</span></p>
+            <p>Grade: <span>${grade}</span></p>
+        `;
+    }
+</script>
+
+</body>
+</html>
