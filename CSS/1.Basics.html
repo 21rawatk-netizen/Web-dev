@@ -14,7 +14,18 @@
     p   {
             color:blue
         }
+        /*id selector:acessed using hash decelared using id*/
+        #first { color:green}
+        /*class selector:acessed using dot decelared using class and it can be used in more than one element*/
+        .Second{ color:darkturquoise}
+        /*group slector:used for multiple elements or can used for id element and class alements at the same time*/
+        h4, h5, h6 {color:fuchsia}
+        /*descendant selector:nested elements*/
+        #third p{
+            color:yellow
+        }
         </style>
+        
 </head>
 <body>
     <h1>
@@ -27,9 +38,19 @@
     <p style="color:blueviolet";>abcd</p>
     <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio dignissimos placeat molestiae doloribus blanditiis sapiente ullam vel praesentium adipisci pariatur!</h2>
     <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ea, quibusdam commodi dolores pariatur esse deleniti repellendus quae, ducimus tenetur maiores. Dolorum veritatis vel voluptates!</h3>
-   
+    <div id="first">First division</div>
+    <div class="Second">Second division</div>
+    <div class="Second">six</div>
+   <h4>h4</h4>
+   <h5>h5</h5>
+   <h6>h6</h6>
+   <div id="third">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, eligendi!
+   </p>
+</div>
+<p>Lorem ipsum dolor sit amet.</p>
 </body>
-</html>
+</html> 
 
 #basics.css
 h2{
