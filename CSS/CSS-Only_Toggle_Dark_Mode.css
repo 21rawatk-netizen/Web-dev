@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Dark Mode</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="toggle.css">
 </head>
 <body>
 <input type="checkbox" id="toggle">
@@ -16,6 +16,7 @@
 body {
   transition: 0.5s;
 }
+toggle.css
 #toggle {
   display: none;
 }
