@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Cards</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.pricing-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 30px;
+    width: 280px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Popular Plan */
+.card.popular {
+    border: 3px solid #667eea;
+    transform: scale(1.05);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #667eea;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    body {
+        height: auto;
+        padding: 40px 0;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="pricing-container">
+    
+    <div class="card">
+        <h2>Basic</h2>
+        <div class="price">₹499/month</div>
+        <ul class="features">
+            <li>✔ 5 Projects</li>
+            <li>✔ Basic Support</li>
+            <li>✔ Limited Access</li>
+        </ul>
+        <button>Choose Plan</button>
+    </div>
+
+    <div class="card popular">
+        <h2>Pro</h2>
+        <div class="price">₹999/month</div>
+        <ul class="features">
+            <li>✔ 20 Projects</li>
+            <li>✔ Priority Support</li>
+            <li>✔ Full Access</li>
+        </ul>
+        <button>Choose Plan</button>
+    </div>
+
+    <div class="card">
+        <h2>Enterprise</h2>
+        <div class="price">₹1999/month</div>
+        <ul class="features">
+            <li>✔ Unlimited Projects</li>
+            <li>✔ 24/7 Support</li>
+            <li>✔ All Features</li>
+        </ul>
+        <button>Choose Plan</button>
+    </div>
+
+</div>
+
+</body>
+</html>
